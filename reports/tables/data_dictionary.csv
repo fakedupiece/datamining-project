@@ -1,0 +1,41 @@
+column,role,definition,risk_or_usage_note
+video_id,ID,YouTube video identifier,Do not use as a numeric feature.
+channel_title,ID / metadata,Channel label,Repeated channels can create group leakage.
+category_id,predictor / metadata,YouTube category identifier,Nominal; encode rather than treat as ordered.
+publish_time,metadata,UTC video publication timestamp,Use only to derive pre-outcome timing features.
+first_trending_date,post-publication metadata,First observed US trending date,Unavailable before outcome observation.
+last_trending_date,post-publication metadata,Last observed US trending date,Unavailable before outcome observation.
+views,outcome,Cumulative views at the latest trending snapshot,Post-publication outcome.
+likes,outcome,Cumulative likes at the latest trending snapshot,Post-publication outcome.
+dislikes,outcome,Cumulative dislikes at the latest trending snapshot,Post-publication outcome.
+comment_count,outcome,Cumulative comments at the latest trending snapshot,Post-publication outcome.
+engagements,derived outcome,likes + dislikes + comment_count,Circular for engagement prediction.
+engagement_per_view,derived outcome / leakage-risk,Observed engagements divided by views,Not a sales conversion rate; invalid when ratings/comments are disabled.
+reaction_rate,derived outcome / leakage-risk,(likes + dislikes) divided by views,Invalid when ratings are disabled.
+comment_rate,derived outcome / leakage-risk,comment_count divided by views,Invalid when comments are disabled.
+like_share,derived outcome / leakage-risk,likes divided by likes + dislikes,Invalid when ratings are disabled or denominator is zero.
+comments_per_engagement,derived outcome / leakage-risk,comments divided by observed engagements,Invalid when comments/ratings are disabled.
+days_to_trending,derived outcome,Calendar days from publication to first trending observation,Post-publication timing outcome.
+trending_days,derived outcome,Number of distinct dates observed as trending,Selection-window and right-censoring risk.
+snapshot_count,metadata,Number of retained daily snapshots for the video,Repeated-measure diagnostic; not a pre-campaign feature.
+active_days_at_last_snapshot,derived outcome,Calendar age in days at the latest trending snapshot,Post-publication exposure denominator.
+views_per_active_day,derived outcome / leakage-risk,Latest views divided by calendar age,"Content velocity, not sales or ROI."
+title_length,captured metadata,Title length in characters,Captured at a trending snapshot and may have been edited after publication.
+title_word_count,captured metadata,Whitespace-tokenized title length,Captured at a trending snapshot; language-dependent and not verified as publication-time metadata.
+tag_count,captured metadata,Pipe-delimited tag count,[none] is treated as zero; tags may have been edited after publication.
+description_length,captured metadata,Description length in characters,Missing description is represented as length zero together with description_missing.
+description_missing,metadata / missingness,Whether the source description is missing,Separates missing descriptions from observed empty descriptions.
+publish_hour,predictor,UTC publication hour,"Cyclic, so use sine/cosine for distance methods."
+publish_weekday,predictor,"UTC weekday, Monday=0","Cyclic, so use sine/cosine for distance methods."
+publish_hour_sin,engineered predictor,Sine encoding of UTC publication hour,Pre-outcome feature.
+publish_hour_cos,engineered predictor,Cosine encoding of UTC publication hour,Pre-outcome feature.
+publish_weekday_sin,engineered predictor,Sine encoding of publication weekday,Pre-outcome feature.
+publish_weekday_cos,engineered predictor,Cosine encoding of publication weekday,Pre-outcome feature.
+comments_disabled,metadata / missingness,Whether comments were disabled,Structural missingness; zero comments is not observed zero.
+ratings_disabled,metadata / missingness,Whether ratings were disabled,Structural missingness; zero ratings is not observed zero.
+log1p_views,transformed outcome,Natural log(1 + views),Post-publication outcome.
+log1p_likes,transformed outcome,Natural log(1 + likes),Post-publication outcome.
+log1p_dislikes,transformed outcome,Natural log(1 + dislikes),Post-publication outcome.
+log1p_comment_count,transformed outcome,Natural log(1 + comment_count),Post-publication outcome.
+log1p_engagements,transformed outcome,Natural log(1 + observed engagements),Post-publication outcome.
+log1p_views_per_active_day,transformed outcome,Natural log(1 + views per active day),Post-publication outcome.

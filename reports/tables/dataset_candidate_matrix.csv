@@ -1,0 +1,6 @@
+dataset,authenticity_provenance,relevance_to_influencer_or_audience,outcome_availability,granularity,diversity,access_and_ethics,feasibility,total,outcome
+Influencer Marketing ROI Dataset,0,2,0,2,1,2,2,9,"PIVOT: provenance and commercial-outcome hard veto"
+SAGraph,2,2,0,2,2,1,1,10,"PIVOT: audience research only; no observed commercial outcome"
+YouTube Trending Video Statistics (US),2,1,0,2,2,2,2,11,"Selected after PIVOT to content-performance; no sales/ROI claims"
+UCI Online Retail II,2,0,1,2,2,2,1,10,"PIVOT: real commerce data but no influencer attribution"
+GA4 sample ecommerce,1,1,1,2,1,1,0,7,"REVIEW/PIVOT: obfuscated sample and table access unverified"

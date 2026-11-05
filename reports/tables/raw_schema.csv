@@ -1,0 +1,17 @@
+column,pandas_dtype,non_null_count,missing_count,unique_count
+video_id,object,40949,0,6351
+trending_date,object,40949,0,205
+title,object,40949,0,6455
+channel_title,object,40949,0,2207
+category_id,int64,40949,0,16
+publish_time,object,40949,0,6269
+tags,object,40949,0,6055
+views,int64,40949,0,40478
+likes,int64,40949,0,29850
+dislikes,int64,40949,0,8516
+comment_count,int64,40949,0,13773
+thumbnail_link,object,40949,0,6352
+comments_disabled,bool,40949,0,2
+ratings_disabled,bool,40949,0,2
+video_error_or_removed,bool,40949,0,2
+description,object,40379,570,6901

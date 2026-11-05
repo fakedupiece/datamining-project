@@ -1,0 +1,272 @@
+{
+  "generated_at_utc": "2026-11-05T04:57:20.516261+00:00",
+  "input": {
+    "path": "/workspace/datamining-project/data/processed/us_video_features.csv",
+    "sha256": "775f4275c56577c09d7b10312de67ab9d719cc9bf9c4ca04d23edfc920139fe5",
+    "rows": 6347,
+    "columns": 40
+  },
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0"
+  },
+  "design": {
+    "hopkins_formula": "sum(reference_nnd) / (sum(reference_nnd) + sum(observed_leave_one_out_nnd))",
+    "hopkins_orientation": "approximately 0.5 random; toward 1 clustered",
+    "hopkins_reference": "uniform_axis_aligned_observed_bounding_box",
+    "distance_null": "independent_within-column_permutation_preserving_empirical_marginals",
+    "distance_alternative": "observed median NND is smaller than null replicate medians",
+    "pca_role": "exploratory visualization only",
+    "outcome_warning": "Outcome-derived descriptive features cannot later serve as independent outcome validation.",
+    "redundancy_policy": "Primary normalized and combined sets exclude algebraically redundant rate/count features; captured metadata excludes deterministic sine/cosine pairs."
+  },
+  "parameters": {
+    "feature_sets": {
+      "raw_volume": [
+        "log1p_views",
+        "log1p_likes",
+        "log1p_dislikes",
+        "log1p_comment_count"
+      ],
+      "normalized_behavior": [
+        "engagement_per_view",
+        "days_to_trending",
+        "trending_days"
+      ],
+      "combined_behavior": [
+        "log1p_views",
+        "engagement_per_view",
+        "days_to_trending",
+        "trending_days"
+      ],
+      "captured_content_metadata": [
+        "title_length",
+        "tag_count",
+        "description_length",
+        "description_missing"
+      ]
+    },
+    "scalers": [
+      "standard",
+      "robust"
+    ],
+    "duplicate_modes": [
+      "keep",
+      "drop"
+    ],
+    "seeds": [
+      11,
+      23,
+      42,
+      73,
+      101
+    ],
+    "sample_sizes": [
+      100,
+      250,
+      500
+    ],
+    "null_repetitions": 30,
+    "max_null_rows": 3000
+  },
+  "suggested_gate": "REVIEW",
+  "suggested_gate_reason": "Only 6/8 primary sensitivity configurations pass both diagnostics; representation sensitivity requires review before Stage 3.",
+  "configuration_summary": [
+    {
+      "feature_set": "captured_content_metadata",
+      "scaler": "robust",
+      "duplicate_mode": "drop",
+      "hopkins_mean": 0.8794751936327077,
+      "hopkins_std": 0.007452341289386512,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.1123908636941304,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "captured_content_metadata",
+      "scaler": "robust",
+      "duplicate_mode": "keep",
+      "hopkins_mean": 0.8837153519069801,
+      "hopkins_std": 0.008608199679692397,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.07306217813364,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "captured_content_metadata",
+      "scaler": "standard",
+      "duplicate_mode": "drop",
+      "hopkins_mean": 0.9636328863536101,
+      "hopkins_std": 0.0026181848218683195,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.1495245751354473,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "captured_content_metadata",
+      "scaler": "standard",
+      "duplicate_mode": "keep",
+      "hopkins_mean": 0.9651425197343101,
+      "hopkins_std": 0.0032017424904601396,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.1200288373676892,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "combined_behavior",
+      "scaler": "robust",
+      "duplicate_mode": "drop",
+      "hopkins_mean": 0.9882148599431022,
+      "hopkins_std": 0.004252053886210935,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.188311707658083,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "combined_behavior",
+      "scaler": "robust",
+      "duplicate_mode": "keep",
+      "hopkins_mean": 0.9882148599431022,
+      "hopkins_std": 0.004252053886210935,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.188311707658083,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "combined_behavior",
+      "scaler": "standard",
+      "duplicate_mode": "drop",
+      "hopkins_mean": 0.9787526669556306,
+      "hopkins_std": 0.001923295581143242,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.0713431192470058,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "combined_behavior",
+      "scaler": "standard",
+      "duplicate_mode": "keep",
+      "hopkins_mean": 0.9787526669556306,
+      "hopkins_std": 0.001923295581143242,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.0713431192470058,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "normalized_behavior",
+      "scaler": "robust",
+      "duplicate_mode": "drop",
+      "hopkins_mean": 0.9824631405785257,
+      "hopkins_std": 0.03545161115057485,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.0284066792597113,
+      "one_sided_permutation_p_value": 0.2903225806451613
+    },
+    {
+      "feature_set": "normalized_behavior",
+      "scaler": "robust",
+      "duplicate_mode": "keep",
+      "hopkins_mean": 0.9927952165269901,
+      "hopkins_std": 0.004385722155573996,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.054880883556226,
+      "one_sided_permutation_p_value": 0.0967741935483871
+    },
+    {
+      "feature_set": "normalized_behavior",
+      "scaler": "standard",
+      "duplicate_mode": "drop",
+      "hopkins_mean": 0.9951853985699921,
+      "hopkins_std": 0.002306485497793932,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.0283957795075882,
+      "one_sided_permutation_p_value": 0.16129032258064516
+    },
+    {
+      "feature_set": "normalized_behavior",
+      "scaler": "standard",
+      "duplicate_mode": "keep",
+      "hopkins_mean": 0.9959020807942046,
+      "hopkins_std": 0.0008313562973164822,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 1.0606623028340796,
+      "one_sided_permutation_p_value": 0.06451612903225806
+    },
+    {
+      "feature_set": "raw_volume",
+      "scaler": "robust",
+      "duplicate_mode": "drop",
+      "hopkins_mean": 0.9344999053217489,
+      "hopkins_std": 0.005443186446138416,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 2.171707210275949,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "raw_volume",
+      "scaler": "robust",
+      "duplicate_mode": "keep",
+      "hopkins_mean": 0.9344999053217489,
+      "hopkins_std": 0.005443186446138416,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 2.171707210275949,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "raw_volume",
+      "scaler": "standard",
+      "duplicate_mode": "drop",
+      "hopkins_mean": 0.9345249519653888,
+      "hopkins_std": 0.005336874382739104,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 2.1764669535126764,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    },
+    {
+      "feature_set": "raw_volume",
+      "scaler": "standard",
+      "duplicate_mode": "keep",
+      "hopkins_mean": 0.9345249519653888,
+      "hopkins_std": 0.005336874382739104,
+      "fraction_at_or_above_0_65": 1.0,
+      "trials": 15,
+      "null_to_observed_median_ratio": 2.1764669535126764,
+      "one_sided_permutation_p_value": 0.03225806451612903
+    }
+  ],
+  "artifacts": {
+    "hopkins_table": "reports/tables/hopkins_sensitivity.csv",
+    "null_distance_table": "reports/tables/null_distance_comparison.csv",
+    "preprocessing_table": "reports/tables/clusterability_preprocessing.csv",
+    "pca_table": "reports/tables/pca_exploratory_variance.csv",
+    "summary_figures": [
+      "reports/figures/hopkins_sensitivity.png",
+      "reports/figures/null_distance_comparison.png"
+    ]
+  },
+  "limitations": [
+    "A bounding-box uniform null can exaggerate structure for correlated, constrained, or non-convex supports.",
+    "The marginal-permutation null tests dependence beyond empirical univariate marginals; it is not a universal no-cluster null.",
+    "A disagreement after redundancy removal is evidence for REVIEW because dependency/manifold structure can mimic separated groups.",
+    "Exact duplicates can inflate clusterability, so duplicate-dropped runs are primary and duplicate-kept runs are sensitivity checks.",
+    "A GO signal permits Stage 3 comparison; it does not prove that useful or stable clusters exist."
+  ]
+}

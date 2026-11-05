@@ -1,0 +1,76 @@
+{
+  "analysis_unit_candidate": "one unique US trending video, represented by its latest daily snapshot",
+  "archive_bytes": 210575746,
+  "archive_file": "data/raw/youtube-new.zip",
+  "archive_sha256": "9f59324bd23ebd95aa16f854de1e0a6299bacf988b30c5e7db5f1e4216d8deda",
+  "audited_at_utc": "2026-11-05T04:57:04.129556+00:00",
+  "boolean_true_counts": {
+    "comments_disabled": 633,
+    "ratings_disabled": 169,
+    "video_error_or_removed": 23
+  },
+  "cardinality": {
+    "category_id": 16,
+    "channel_title": 2207,
+    "video_id": 6351
+  },
+  "columns_match_expected_schema": true,
+  "commercial_outcomes_available": false,
+  "dataset_name": "YouTube Trending Video Statistics (United States subset)",
+  "duplicate_video_date_rows": 50,
+  "exact_duplicate_rows": 48,
+  "missing_expected_columns": [],
+  "missing_values": {
+    "category_id": 0,
+    "channel_title": 0,
+    "comment_count": 0,
+    "comments_disabled": 0,
+    "description": 570,
+    "dislikes": 0,
+    "likes": 0,
+    "publish_time": 0,
+    "ratings_disabled": 0,
+    "tags": 0,
+    "thumbnail_link": 0,
+    "title": 0,
+    "trending_date": 0,
+    "video_error_or_removed": 0,
+    "video_id": 0,
+    "views": 0
+  },
+  "negative_numeric_values": {
+    "comment_count": 0,
+    "dislikes": 0,
+    "likes": 0,
+    "views": 0
+  },
+  "publish_time": {
+    "invalid": 0,
+    "maximum": "2018-06-14T01:31:53+00:00",
+    "minimum": "2006-07-23T08:24:11+00:00",
+    "valid": 40949
+  },
+  "raw_file": "data/raw/youtube_trending/USvideos.csv",
+  "raw_file_bytes": 62756152,
+  "raw_file_sha256": "09b4eb71295752705e472ebefeac9d2afab4177b7a818af795dea62744a48eb2",
+  "rows_belonging_to_repeated_videos": 40242,
+  "shape": {
+    "columns": 16,
+    "rows": 40949
+  },
+  "source_url": "https://www.kaggle.com/datasets/datasnaek/youtube-new",
+  "trending_date": {
+    "invalid": 0,
+    "maximum": "2018-06-14T00:00:00+00:00",
+    "minimum": "2017-11-14T00:00:00+00:00",
+    "unique_days": 205,
+    "valid": 40949
+  },
+  "unexpected_columns": [],
+  "zero_numeric_values": {
+    "comment_count": 760,
+    "dislikes": 383,
+    "likes": 172,
+    "views": 0
+  }
+}

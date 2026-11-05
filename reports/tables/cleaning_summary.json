@@ -1,0 +1,17 @@
+{
+  "analysis_columns": 40,
+  "analysis_rows": 6347,
+  "analysis_unit": "one unique video_id, latest retained US trending snapshot",
+  "duplicate_video_day_rows_removed": 2,
+  "exact_duplicate_rows_removed": 48,
+  "invalid_core_rows_removed": 0,
+  "negative_or_impossible_timing_rows_set_missing": 1,
+  "nonpositive_view_videos_excluded": 0,
+  "sales_revenue_cost_roi_columns": [],
+  "source_rows": 40949,
+  "unique_videos_before_eligibility_filter": 6351,
+  "video_error_or_removed_excluded": 4,
+  "videos_with_structurally_missing_comments": 105,
+  "videos_with_structurally_missing_ratings": 30,
+  "view_decrease_events_retained_as_source_diagnostic": 35
+}

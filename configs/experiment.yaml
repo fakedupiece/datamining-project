@@ -1,0 +1,74 @@
+project:
+  name: Beyond Engagement
+  random_seed: 42
+
+dataset:
+  name: YouTube Trending Video Statistics (United States subset)
+  kaggle_slug: datasnaek/youtube-new
+  source_url: https://www.kaggle.com/datasets/datasnaek/youtube-new
+  dataset_version: 115
+  download_url: https://www.kaggle.com/api/v1/datasets/download/datasnaek/youtube-new?datasetVersionNumber=115
+  raw_archive: data/raw/youtube-new.zip
+  raw_archive_bytes: 210575746
+  raw_archive_sha256: 9f59324bd23ebd95aa16f854de1e0a6299bacf988b30c5e7db5f1e4216d8deda
+  raw_file: data/raw/youtube_trending/USvideos.csv
+  raw_file_sha256: 09b4eb71295752705e472ebefeac9d2afab4177b7a818af795dea62744a48eb2
+  category_file: data/raw/youtube_trending/US_category_id.json
+  category_file_sha256: 2e892c5a5e48d284e40fd37de0313912264041aef8833e5323bd2b2fd08c7e25
+  analysis_unit: one unique US trending video, represented by its latest daily snapshot
+  observed_outcomes:
+    - views
+    - likes
+    - dislikes
+    - comment_count
+  commercial_outcomes_available: false
+
+outputs:
+  processed_file: data/processed/us_video_features.csv
+  audit_json: reports/tables/raw_data_audit.json
+  schema_csv: reports/tables/raw_schema.csv
+  cleaning_json: reports/tables/cleaning_summary.json
+  data_dictionary_csv: reports/tables/data_dictionary.csv
+  feature_summary_csv: reports/tables/feature_summary.csv
+  figures_dir: reports/figures
+  tables_dir: reports/tables
+
+clustering_tendency:
+  feature_sets:
+    raw_volume:
+      - log1p_views
+      - log1p_likes
+      - log1p_dislikes
+      - log1p_comment_count
+    normalized_behavior:
+      - engagement_per_view
+      - days_to_trending
+      - trending_days
+    combined_behavior:
+      - log1p_views
+      - engagement_per_view
+      - days_to_trending
+      - trending_days
+    captured_content_metadata:
+      - title_length
+      - tag_count
+      - description_length
+      - description_missing
+  scalers:
+    - standard
+    - robust
+  duplicate_modes:
+    - keep
+    - drop
+  seeds:
+    - 11
+    - 23
+    - 42
+    - 73
+    - 101
+  sample_sizes:
+    - 100
+    - 250
+    - 500
+  max_null_rows: 3000
+  null_repetitions: 30
